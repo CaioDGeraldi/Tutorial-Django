@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução ao Django - Guia Rápido</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <nav class="sidebar">
+        <h2>Django Intro</h2>
+        <ul>
+            <li><a href="#o-que-e">O que é?</a></li>
+            <li><a href="#dicas">Dicas</a></li>
+            <li><a href="#virtual-env">Ambiente Virtual</a></li>
+            <li><a href="#instalacao">Instalação</a></li>
+            <li><a href="#configuracoes">Configuração</a></li>
+            <li><a href="#boaspraticas">Boas Práticas</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <section id="o-que-e">
+            <h1>O que é o Django?</h1>
+            <p>Django é um framework web de alto nível, gratuito e de código aberto, escrito em Python, projetado para facilitar o desenvolvimento rápido de sites seguros e escaláveis. Ele segue o padrão "baterias incluídas", fornecendo ferramentas prontas para autenticação, painel administrativo e banco de dados, sendo ideal para projetos complexos e amplamente utilizado por empresas como Instagram. </p>
+            <p style="font-weight: bold;">Python e PIP são necessários, todos os comandos rodam no Terminal (Command Prompt)</p>
+        </section>
+
+        <section id="dicas">
+            <h2>Dicas</h2>
+            <p>- Sempre crie uma pasta <span class="destaque">master</span> iniciar um projeto.</p>
+            <p>- Toda vez após instalar um pacote com o <span class="destaque">pip/Python</span>, rode <pre><code>pip freeze > requirements.txt</pre></code></p>
+            <p>- Voce pode baixar todos os requerimentos com o comando <pre><code>pip install -r requeriments.txt</code></pre></p>
+            <p>- Significado das pastas <pre><code>templates - html <br>static    - css </pre></code></p>
+        </section>
+
+        <section id="virtual-env">
+            <h2>VirtualEnv (Ambiente Virtual)</h2>
+            <p>Antes de começar, isolamos as dependências do projeto:</p>
+            <pre><code>pip install virtualenv<br>python -m virtualenv venv</code></pre>
+            <p>Para ativar (Windows): <pre><code>venv\Scripts\activate</code></pre></p>
+        </section>
+
+        <section id="instalacao">
+            <h2>Instalando o Django</h2>
+            <p>Com o ambiente ativo, execute:</p>
+            <pre><code>pip install django</code></pre>
+            <p>Para criar o projeto: <pre><code>django-admin startproject setup .</code></pre></p>
+        </section>
+
+        <section id="configuracoes">
+            <h2>Configurando Timezone e Linguagem</h2>
+            <p>Vá até o arquivo <pre><code>/setup/settings.py</code></pre></p>
+            <p>Altere os valores respectivos para <pre><code>LANGUAGE_CODE = <span class="destaque">'en-us'</span> → <span class="destaque">'pt-br'</span><br>TIME_ZONE = <span class="destaque">'UTC'</span> → <span class="destaque">'America/Sao_Paulo'</span></code></pre></p>
+        </section>
+
+        <section id="boaspraticas">
+            <h2>Protegendo Variáveis de Ambiente</h2>
+            <p>Instale o pacote dotenv <pre><code>pip install python-dotenv</code></pre> lembre-se de rodar<pre><code>pip freeze > requirements.txt</code></pre></p>
+            <p>Crie um arquivo <span class="destaque">.env</span> no mesmo nível que <span class="destaque">/setup</span></p>
+            <p>Agora copie o valor da sua <span class="destaque">SECRET_KEY</span> em <span class="destaque">/setup/settings.py</span> e cole o no arquivo <span class="destaque">.env</span> e remova as aspas.</p>
+            <p>Exemplo:<br> <pre><code> <span class="destaque">SECRET_KEY = 'django-insecure-3%g$tl^y%9#'</span> → <span class="destaque">SECRET_KEY = django-insecure-3%g$tl^y%9#</span></code></pre></p>
+            <p>Apague o valor da <span class="destaque">SECRET_KEY</span> de <span class="destaque">/setup/settings.py</span> e troque por <pre><code><span class="destaque">SECRET_KEY = str(os.getenv('SECRET_KEY')</span></pre></code></p>
+
+        </section>
+    </main>
+</body>
+</html>
+
