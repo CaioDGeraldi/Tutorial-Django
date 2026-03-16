@@ -1,1 +1,1 @@
-caiodgeraldi.github.io/Tutorial-Django
+[Tutorial Django](caiodgeraldi.github.io/Tutorial-Django).
