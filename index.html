@@ -16,7 +16,7 @@
             <li><a href="#virtual-env">Ambiente Virtual</a></li>
             <li><a href="#instalacao">Instalação</a></li>
             <li><a href="#configuracoes">Configuração</a></li>
-            <li><a href="#boaspraticas">Boas Práticas</a></li>
+            <li><a href="#protegendo">Protegendo variáveis</a></li>
         </ul>
     </nav>
 
@@ -33,6 +33,7 @@
             <p>- Toda vez após instalar um pacote com o <span class="destaque">pip/Python</span>, rode <pre><code>pip freeze > requirements.txt</pre></code></p>
             <p>- Voce pode baixar todos os requerimentos com o comando <pre><code>pip install -r requeriments.txt</code></pre></p>
             <p>- Significado das pastas <pre><code>templates - html <br>static    - css </pre></code></p>
+            <p>- É recomendado o uso do VsCode para navegar e editar arquivos.</p>
         </section>
 
         <section id="virtual-env">
@@ -51,20 +52,22 @@
 
         <section id="configuracoes">
             <h2>Configurando Timezone e Linguagem</h2>
-            <p>Vá até o arquivo <pre><code>/setup/settings.py</code></pre></p>
+            <p>Vá até o arquivo e edite (com VsCode ou bloco de notas)<pre><code>/setup/settings.py</code></pre></p>
             <p>Altere os valores respectivos para <pre><code>LANGUAGE_CODE = <span class="destaque">'en-us'</span> → <span class="destaque">'pt-br'</span><br>TIME_ZONE = <span class="destaque">'UTC'</span> → <span class="destaque">'America/Sao_Paulo'</span></code></pre></p>
         </section>
 
-        <section id="boaspraticas">
+        <section id="protegendo">
             <h2>Protegendo Variáveis de Ambiente</h2>
-            <p>Instale o pacote dotenv <pre><code>pip install python-dotenv</code></pre> lembre-se de rodar<pre><code>pip freeze > requirements.txt</code></pre></p>
+            <p>Instale o pacote dotenv <pre><code>pip install python-dotenv</code></pre> lembre-se de rodar depois da instalação<pre><code>pip freeze > requirements.txt</code></pre></p>
+            <p>Agora no cabeçalho de <span class="destaque">/setup/settings.py</span> adicione as seguintes importações <pre><code>import os <br>from pathlib import Path <br>from dotenv import load_dotenv</code></pre>evite deixar importações repetidas.</p>
             <p>Crie um arquivo <span class="destaque">.env</span> no mesmo nível que <span class="destaque">/setup</span></p>
             <p>Agora copie o valor da sua <span class="destaque">SECRET_KEY</span> em <span class="destaque">/setup/settings.py</span> e cole o no arquivo <span class="destaque">.env</span> e remova as aspas.</p>
             <p>Exemplo:<br> <pre><code> <span class="destaque">SECRET_KEY = 'django-insecure-3%g$tl^y%9#'</span> → <span class="destaque">SECRET_KEY = django-insecure-3%g$tl^y%9#</span></code></pre></p>
             <p>Apague o valor da <span class="destaque">SECRET_KEY</span> de <span class="destaque">/setup/settings.py</span> e troque por <pre><code><span class="destaque">SECRET_KEY = str(os.getenv('SECRET_KEY')</span></pre></code></p>
-
+            <p>Agora para evitar que esse tipo de dado sensível vá junto com os outros arquivos para o Github, utilizaremos o arquivo <span class="destaque">.gitignore</span>, para isso, acesse o site: <a href="https://www.toptal.com/developers/gitignore/api/django" target="_blank">gitignore.io django</a>.</p>
+            <p>Crie um arquivo na raiz chamado <span class="destaque">.gitignore</span> e copie e cole tudo que você viu no <a href="https://www.toptal.com/developers/gitignore/api/django" target="_blank">gitignore.io django</a>.</p>
+            <p>Pronto! Agora você já protegeu todos seus tipos de arquivos sensíveis quando for efetuar um commit no Github.</p>
         </section>
     </main>
 </body>
 </html>
-
