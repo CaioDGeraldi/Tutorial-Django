@@ -13,13 +13,14 @@
         <h2>Django Intro</h2>
         <ul>
             <li><a href="#o-que-e">O que é?</a></li>
+            <li><a href="assets.html">HTML e CSS base</a></li>
             <li><a href="#dicas">Dicas</a></li>
             <li><a href="#comecando">Começando</a></li>
             <li><a href="#virtual-env">Ambiente Virtual</a></li>
             <li><a href="#instalacao">Instalação</a></li>
             <li><a href="#configuracoes">Configuração</a></li>
             <li><a href="#protegendo">Protegendo variáveis</a></li>
-            <li><a href="#app">Criando um App</a></li>
+            <li><a href="#app">Primeiro App</a></li>
         </ul>
     </nav>
 
@@ -78,11 +79,22 @@
         </section>
 
         <section id="app">
-            <h2> Criando um App</h2>
+            <h2>Seu Primeiro App</h2>
             <p>Um projeto Django pode ter diversos apps, para criar um app, execute o comando:</p>
             <p><pre><code>python manage.py startapp nome_do_app</code></pre></p>
             <p>Agora para que o Django saiba que você tem um App, vá até o arquivo <pre><code>/setup/settings.py</code></pre>e na seção <span class="destaque">INSTALLED APPS</span> escreva o nome do seu app.</p>
             <p>Ex: <pre><code>INSTALLED_APPS = [<br>...<br>'nome_do_app',<br>]</code></pre></p>
+            <h2>Criando uma View</h2>
+            <p>No arquivo: <pre><code>/nome_do_app/views.py</code></pre>Altere o arquivo para <pre><code>from django.shortcuts import render<br><br>def index(request)<br>   return render(request,'nome_do_app/index.html)</code></pre></p>
+            <p>Este código define que ao receber uma requisição no método index, será retornado uma resposta do tipo <span class="destaque">Render </span>(vai renderizar a página).</p>
+            <h2>Isolando URLS</h2>
+            <p>Crie um arquivo em: <pre><code>/nome_do_app/</code></pre> chamado <span class="destaque">urls.py</span> e coloque este código: <pre><code>from django.urls import Path<br>from nome_do_app.views import index<br><br>urlpatterns =[<br>    path('',index,name='index')<br>]<br></code></pre></p>
+            <p>O atributo <span class="destaque">name</span> serve de identificador, o Django utilizará disso para navegar entre templates.</p>
+            <p>Agora edite o arquivo do projeto: <pre><code>/setup/urls.py</code></pre> para <pre><code>from django.contrib import admin<br>from django.urls import path, include<br><br>urlpatterns = [<br>    path('admin/',admin.site.urls),<br>    path('',include('nome_do_app'.urls'))<br>]</code></pre></p>
+            <h2>Templates</h2>
+            <p>Agora na raiz, crie uma pasta chamada <span class="destaque">templates</span>. Uma boa prática é isolar os templates por app, neste caso, criaremos uma pasta <span class="destaque">nome_do_app</span> dentro de: <pre><code>/templates/ → /templates/nome_do_app</code></pre></p>
+            <p>No arquivo:<pre><code>/setup/settings.py</code></pre> na parte de <span class="destaque">TEMPLATES</span> na chave <span class="destaque">'DIRS'</span> altere para o valor <pre><code>'DIRS': [os.path.join(BASE_DIR, 'templates')],</code></pre></p>
+            <p>Crie um arquivo .html dentro de: <pre><code>templates/nome_do_app/</code></pre> com o código desejado. </p>
         </section>
 
         
