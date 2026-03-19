@@ -19,6 +19,7 @@
             <li><a href="#instalacao">Instalação</a></li>
             <li><a href="#configuracoes">Configuração</a></li>
             <li><a href="#protegendo">Protegendo variáveis</a></li>
+            <li><a href="#app">Criando um App</a></li>
         </ul>
     </nav>
 
@@ -75,6 +76,16 @@
             <p>Crie um arquivo na raiz chamado <span class="destaque">.gitignore</span> e copie e cole tudo que você viu no <a href="https://www.toptal.com/developers/gitignore/api/django" target="_blank">gitignore.io django</a>.</p>
             <p>Pronto! Agora você já protegeu todos seus tipos de arquivos sensíveis quando for efetuar um commit no Github.</p>
         </section>
+
+        <section id="app">
+            <h2> Criando um App</h2>
+            <p>Um projeto Django pode ter diversos apps, para criar um app, execute o comando:</p>
+            <p><pre><code>python manage.py startapp nome_do_app</code></pre></p>
+            <p>Agora para que o Django saiba que você tem um App, vá até o arquivo <pre><code>/setup/settings.py</code></pre>e na seção <span class="destaque">INSTALLED APPS</span> escreva o nome do seu app.</p>
+            <p>Ex: <pre><code>INSTALLED_APPS = [<br>...<br>'nome_do_app',<br>]</code></pre></p>
+        </section>
+
+        
     </main>
 </body>
 </html>
