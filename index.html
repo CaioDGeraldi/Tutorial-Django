@@ -94,10 +94,13 @@
             <h2>Templates</h2>
             <p>Agora na raiz, crie uma pasta chamada <span class="destaque">templates</span>. Uma boa prática é isolar os templates por app, neste caso, criaremos uma pasta <span class="destaque">nome_do_app</span> dentro de: <pre><code>/templates/ → /templates/nome_do_app</code></pre></p>
             <p>No arquivo:<pre><code>/setup/settings.py</code></pre> na parte de <span class="destaque">TEMPLATES</span> na chave <span class="destaque">'DIRS'</span> altere para o valor <pre><code>'DIRS': [os.path.join(BASE_DIR, 'templates')],</code></pre></p>
-            <p>Crie um arquivo .html dentro de: <pre><code>templates/nome_do_app/</code></pre> com o código desejado. </p>
+            <p>Crie um arquivo .html dentro de: <pre><code>templates/nome_do_app/</code></pre> com o código desejado.<br> <span class="destaque">Você pode baixar um arquivo html <a href="tutorial_index.zip">aqui.</a></span></p>
+            <h2>Arquivos Estáticos</h2>
+            <p>Crie uma pasta <span class="destaque">static</span> em: <pre><code>/setup/</code></pre> agora em: <pre><code>/setup/settings.py</code></pre> e em abaixo do <span class="destaque">STATIC_URL</span> coloque as seguintes diretivas: <pre><code>STATICFILES_DIRS = [<br>    os.path.join(BASE_DIR, 'setup/static')<br> ]<br><br> STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></pre></p>
+            <p><span class="destaque">Você pode baixar um arquivo css <a href="tutorial_style.zip">aqui.</a></span></p>
+            <p>Após colocarmos nosso arquivos estáticos (imagens, css, js etc.) dentro da pasta <span class="destaque">/setup/static</span>, precisamos sinalizar para que o Django colete estes arquivos, para isso rode: <pre><code>python manage.py collectstatic</code></pre>após isso, o Django vai mapear todos estes arquivos para uma pasta na raiz <span class="destaque">/static</span> este arquivo não deve ser modificado.</p>
         </section>
 
-        
     </main>
 </body>
 </html>

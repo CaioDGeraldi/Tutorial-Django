@@ -98,6 +98,31 @@ code {
     font-weight: bold;
 }
 
+.html5-icon {
+    font-size: 50px;
+    color: #e34c26; 
+}
+
+.fa-css3 {
+    font-size: 40px;
+    color: blue;
+}
+
+.fa-download {
+    font-size: 20px;
+    color:#092e20;
+}
+
+a {
+    text-decoration: none;
+    color:#092e20;
+}
+
+a :visited {
+    text-decoration: none;
+    color:#092e20;
+}
+
 @media (max-width: 768px) {
     body {
         flex-direction: column; 
