@@ -41,18 +41,31 @@ Este tutorial foi desenvolvido para consolidar os conhecimentos adquiridos sobre
 # Django Tutorial
 - *Practical documentation for learning and reviewing the fundamentals of the Django framework.*
 
+---
+
+<div id="en-intro"></div>
+
+# About the Project
+This tutorial was developed to consolidate the knowledge acquired about **Django**, covering everything from installation to the structuring of a functional web application.
+
+### What you will find:
+- Virtual Environment Configuration (`venv`).
+- Folder and File Structure.
+- Essential Commands (`manage.py`).
+- HTML/CSS Integration.
+
 <div id="en-steps"></div>
 
-### - *Quick Start*
-This project explains the **MTV (Model-Template-View)** architecture and how to get your first server running. It includes step-by-step guides for environment isolation and project bootstrap.
+### - *Basic Step-by-Step*
+1. **Installation:** `pip install django`
+2. **Project Creation:** `django-admin startproject project_name`
+3. **Server:** `python manage.py runserver`
+<br>...learning based on classes at ETEC Alberto Feres and official documentation.
 
 <div id="en-links"></div>
 
-### - *Resources*
-- [View Live Tutorial](https://caiodgeraldi.github.io/Tutorial-Django/)
-- [W3Schools Django Course](https://www.w3schools.com/django/)
+### - *Useful Links*
+- [Access Full Tutorial (GitHub Pages)](https://caiodgeraldi.github.io/Tutorial-Django/)
+- [Official Django Documentation](https://docs.djangoproject.com/en/stable/)
 
 ---
-
-## 📫 Contato / Contact
-- **E-mail:** [Mande um e-mail](mailto:seu-email@exemplo.com)
